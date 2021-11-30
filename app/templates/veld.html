@@ -1,0 +1,51 @@
+{% extends "base.html" %} {% block title %}Veld Fire{% endblock %} {% block
+content %}
+<div class="container-corporate-outer">
+  <div class="container container-corporate">
+    <div class="section-heading">
+      <h1>Veld Fire</h1>
+      <h6>Stop the fire, Save a tree</h6>
+    </div>
+    <div class="section">
+      <form action="{{ url_for('veld') }}" method="post">
+        <input
+          class="form-control"
+          type="text"
+          name="issue"
+          id="issue"
+          hidden
+          value="veld"
+        />
+        <input
+          class="form-control"
+          type="date"
+          name="dor"
+          id="dor"
+          hidden
+          value="{{DOR}}"
+        />
+        <input
+          class="form-control"
+          type="text"
+          name="tor"
+          id="tor"
+          hidden
+          value="{{TOR}}"
+        />
+        <div class="form-group">
+          <label for="address"><h1 class="loc">Location</h1></label>
+          <input
+            class="form-control mb-4"
+            type="text"
+            name="address"
+            id="address"
+            required
+          />
+        </div>
+        <input class="form-submit dash-btn" type="submit" value="Report Fire" />
+        <p class="msg mt-4 text-green">{{ msg }}</p>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

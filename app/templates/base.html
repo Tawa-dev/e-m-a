@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{%endblock %}</title>
+
+    <!-- font awesome-->
+    <script src="{{ url_for('static', filename='js/all.min.js') }}"></script>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/superslides.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='js/all.min.js') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg px-3" id="navBar">
+      <a href="{{url_for('home')}}" class="navbar-brand"
+        ><img src="{{ url_for('static', filename='assets/logo.jpg') }}" alt=""
+      /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#myNav"
+      >
+        <span class="navbar-icon"><i class="fas fa-bars"></i></span>
+      </button>
+      <div class="collapse navbar-collapse a" id="myNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item active">
+            <a href="{{url_for('home')}}" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a href="{{url_for('veld')}}" class="nav-link">Veld Fire</a>
+          </li>
+          <li class="nav-item active">
+            <a href="{{url_for('deforestation')}}" class="nav-link"
+              >Deforestation</a
+            >
+          </li>
+          <li class="nav-item active">
+            <a href="{{url_for('litter')}}" class="nav-link">Littering</a>
+          </li>
+        </ul>
+        <div class="nav-buttons">
+          <a href="{{url_for('login')}}" class="logIn"
+            ><button class="btn btn-default" type="button">Sign In</button></a
+          >
+        </div>
+      </div>
+    </nav>
+
+    {% block content %}{% endblock %} {% block footer %}
+    <footer class="o-footer">
+      <div class="footer">
+        <p class="mx-auto my-auto copyright-text">
+          &copy;2021 EMA | All Rights Reserved
+        </p>
+      </div>
+    </footer>
+    {% endblock %}
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.superslides.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </body>
+</html>

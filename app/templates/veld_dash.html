@@ -1,0 +1,51 @@
+{% extends 'layout.html' %} {% block title %}Veld Fire Dashboard{% endblock %} {% block
+content %}
+<div class="h-container ">
+  <h2>
+    Reported Veld Fires
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class=""> Date: {{TODAY.strftime('%Y-%m-%d')}}
+  </h2>
+  <div class="outer-container ">
+    <table class="table ">
+      <thead>
+        <tr>
+          <th>LOCATION</th>
+          <th>TIME OF REPORT</th>
+          <th>ATTENDED </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!--Loop through all reported veld fires -->
+        {% for veld in veld_reports %}
+        <form action="{{ url_for('attend') }}" method="post">
+        <tr>
+          <td>{{ veld.Location }}</td>
+          <td>{{veld.Time_Of_Report[0:5] }}</td>
+          <td>{{ veld.Attended }}</td>
+          <input type="text" name="_id" id="_id" hidden value="{{veld._id}}" />
+          <input type="text" name="qDate1" id="qDate1" hidden value="{{veld.Date_Of_Report.strftime('%Y-%m-%d')}}" />
+          <td><input type="submit" value="Attended"></td>
+        </tr>
+      </form>
+        {% endfor %}
+      </tbody>
+    </table>
+    <!-- Loop available dates-->
+    <div class="prevDates">
+      <h6>Previous Dates</h6>
+      <ul>
+      
+      {% for findDate in FindDates %}
+      <form action="{{ url_for('veld_dash') }}" method="post">
+      <input type="text" name="qDate" id="qDate" hidden value="{{findDate.strftime('%Y-%m-%d')}}" />
+      <li> <input class="mb-2 prevD" type="submit" value="{{ findDate.strftime('%Y-%m-%d') }}">
+      </li>
+    </form>
+      {% endfor %}
+    </ul>
+    </div>
+  </div> 
+</div>
+{% endblock %}

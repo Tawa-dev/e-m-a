@@ -1,0 +1,54 @@
+{% extends 'layout.html' %} {% block title %}Deforestation Dashboard{% endblock %} {% block
+  content %}
+  <div class="h-container ">
+    <h2>
+      Reported Deforestation
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span class=""> Date: {{TODAY.strftime('%Y-%m-%d')}}
+    </h2>
+    <div class="outer-container ">
+      <table class="table ">
+        <thead>
+          <tr>
+            <th>LOCATION</th>
+            <th>TIME OF REPORT</th>
+            <th>ATTENDED </th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--Loop through all reported veld fires -->
+          
+          {% for defore in defore_reports %}
+          <form action="{{ url_for('attend_defore') }}" method="post">
+          <tr>
+            <td>{{ defore.Location }}</td>
+            <td>{{defore.Time_Of_Report[0:5] }}</td>
+            <td>{{ defore.Attended }}</td>
+            <input type="text" name="_id" id="_id" hidden value="{{defore._id}}" />
+            <input type="text" name="qDated" id="qDated" hidden value="{{defore.Date_Of_Report.strftime('%Y-%m-%d')}}" />
+            <td><input type="submit" value="Attended"></td>
+          </tr>
+        </form>
+          {% endfor %}
+        
+        </tbody>
+      </table>
+      <!-- Loop available dates-->
+      <div class="prevDates">
+        <h6>Previous Dates</h6>
+        <ul>
+        
+        {% for findDate in FindDates %}
+        <form action="{{ url_for('defore_dash') }}" method="post">
+        <input type="text" name="qDated2" id="qDated2" hidden value="{{findDate.strftime('%Y-%m-%d')}}" />
+        <li> <input class="mb-2 prevD" type="submit" value="{{ findDate.strftime('%Y-%m-%d') }}">
+        </li>
+      </form>
+        {% endfor %}
+      </ul>
+      </div>
+    </div> 
+  </div>
+  {% endblock %}
+  

@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+
+<!-- header -->
+<header class="header" id="header">
+  <div id="slides">
+    <div class="slides-container">
+      <img src="{{ url_for('static', filename='assets/home.jpg') }}" alt="" />
+      <img src="{{ url_for('static', filename='assets/home2.jpg') }}" alt="" />
+      <img src="{{ url_for('static', filename='assets/g1.jpg') }}" alt="" />
+      <img src="{{ url_for('static', filename='assets/w1.jpg') }}" alt="" />
+    </div>
+
+    <nav class="slides-navigation">
+      <a href="#" class="next"></a>
+      <a href="#" class="prev"></a>
+    </nav>
+  </div>
+  <!---->
+  <!--
+      <div class="container-fluid">
+       <div class="row height-max align-items-center">  
+      <div class="col col-md-9 mx-auto text-center">
+        <h5 class="title-heading d-inline-block p-2 text-uppercase">
+          Let's do stats
+        </h5>
+        <h2 class="text-uppercase my-2 title">CPH STATISTICS PORTAL</h2>
+        <h6 class="text-capitalize">store and retrieve the stats you need</h6>
+      </div>
+    </div>
+  </div>-->
+</header>
+
+{% endblock %} {% block footer %}
+<footer>
+  <div class="footer">
+    <p class="mx-auto my-auto copyright-text">
+      &copy;2021 EMA | All Rights Reserved
+    </p>
+  </div>
+</footer>
+{% endblock %}
