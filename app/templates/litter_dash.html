@@ -25,6 +25,7 @@
             <td>{{litter.Time_Of_Report[0:5] }}</td>
             <td>{{ litter.Attended }}</td>
             <input type="text" name="_id" id="_id" hidden value="{{litter._id}}" />
+            <input type="email" name="rEmail" id="rEmail" hidden value="{{litter.rEmail}}" />
             <input type="text" name="qDatel" id="qDatel" hidden value="{{litter.Date_Of_Report.strftime('%Y-%m-%d')}}" />
             <td><input type="submit" value="Attended"></td>
           </tr>
