@@ -20,9 +20,10 @@ def veld():
         dor = datetime.datetime.strptime(request.form['dor'], '%Y-%m-%d') #date of report
         tor = request.form['tor']                  #time of report
         location = request.form['address']
+        rEmail = request.form['rEmail']
 
         # Insert fire report details
-        veld = {"Date_Of_Report":dor,"Time_Of_Report":tor, "Location": location,"Issue":issue,"Attended":False}
+        veld = {"Date_Of_Report":dor,"Time_Of_Report":tor, "Location": location,"Issue":issue,"Attended":False,"rEmail":rEmail}
         Database.insert("reports",veld)
         msg = 'Veld Fire Reported! Thank You!'
 
@@ -40,9 +41,10 @@ def deforestation():
         dor = datetime.datetime.strptime(request.form['dor'], '%Y-%m-%d') #date of report
         tor = request.form['tor']                  #time of report
         location = request.form['address']
+        rEmail = request.form['rEmail']
 
         # Insert fire report details
-        defore = {"Date_Of_Report":dor,"Time_Of_Report":tor, "Location": location,"Issue":issue,"Attended":False}
+        defore = {"Date_Of_Report":dor,"Time_Of_Report":tor, "Location": location,"Issue":issue,"Attended":False,"rEmail":rEmail}
         Database.insert("reports",defore)
         msg = 'Deforestation Reported! Thank You!'
 
@@ -61,9 +63,10 @@ def litter():
         dor = datetime.datetime.strptime(request.form['dor'], '%Y-%m-%d') #date of report
         tor = request.form['tor']                  #time of report
         location = request.form['address']
+        rEmail = request.form['rEmail']
 
         # Insert fire report details
-        litter = {"Date_Of_Report":dor,"Time_Of_Report":tor, "Location": location,"Issue":issue,"Attended":False}
+        litter = {"Date_Of_Report":dor,"Time_Of_Report":tor, "Location": location,"Issue":issue,"Attended":False,"rEmail":rEmail}
         Database.insert("reports",litter)
         msg = 'Littering Reported! Thank You!'
 
