@@ -26,6 +26,7 @@
             <td>{{defore.Time_Of_Report[0:5] }}</td>
             <td>{{ defore.Attended }}</td>
             <input type="text" name="_id" id="_id" hidden value="{{defore._id}}" />
+            <input type="email" name="rEmail" id="rEmail" hidden value="{{defore.rEmail}}" />
             <input type="text" name="qDated" id="qDated" hidden value="{{defore.Date_Of_Report.strftime('%Y-%m-%d')}}" />
             <td><input type="submit" value="Attended"></td>
           </tr>
