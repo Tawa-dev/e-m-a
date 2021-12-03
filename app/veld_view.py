@@ -1,5 +1,6 @@
 from app import app          
-from app.database import Database      
+from app.database import Database   
+from app import email    
 
 from flask import render_template, request, url_for, redirect, session
 import datetime
@@ -45,4 +46,17 @@ def attend():
     # Get veld reports and found dates
     veld_reports = coreF(queryDate)[0] 
     FindDates = coreF(queryDate)[1]
+
+    # Send email with provided details
+    content = f"""
+            Dear Sir/Ma'am \n
+
+            We would like to take this opportunity to thank you for reporting the veld fire on {queryDate.strftime('%Y-%m-%d')}\n
+            This Email is to inform you that the issue has been addressed.\n
+
+            Yours Thankful
+            EMA Team
+      """
+    email.sendEmail('EMA Response',content,request.form['rEmail'])
+
     return render_template('veld_dash.html',veld_reports=veld_reports,TODAY=queryDate, FindDates=FindDates)
