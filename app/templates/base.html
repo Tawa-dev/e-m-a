@@ -63,15 +63,7 @@
       </div>
     </nav>
 
-    {% block content %}{% endblock %} {% block footer %}
-    <footer class="o-footer">
-      <div class="footer">
-        <p class="mx-auto my-auto copyright-text">
-          &copy;2021 EMA | All Rights Reserved
-        </p>
-      </div>
-    </footer>
-    {% endblock %}
+    {% block content %}{% endblock %} 
     <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
     <script src="{{ url_for('static', filename='js/jquery.superslides.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
